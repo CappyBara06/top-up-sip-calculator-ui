@@ -2,6 +2,7 @@
 
 import React from "react";
 import { TrendingUp, Wallet, Coins } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { formatINR } from "@/lib/financialUtils";
 
 interface ResultCard {
@@ -11,6 +12,7 @@ interface ResultCard {
   icon: React.ReactNode;
   accentColor: string;
   valueColor: string;
+  bgColor: string;
 }
 
 interface ResultCardsProps {
@@ -18,6 +20,19 @@ interface ResultCardsProps {
   totalInvested: number;
   totalReturns: number;
 }
+
+const NumberTicker = ({ value }: { value: number }) => {
+  return (
+    <motion.span
+      key={value}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+    >
+      {formatINR(value)}
+    </motion.span>
+  );
+};
 
 export const ResultCards: React.FC<ResultCardsProps> = ({
   futureValue,
@@ -27,58 +42,71 @@ export const ResultCards: React.FC<ResultCardsProps> = ({
   const cards: ResultCard[] = [
     {
       label: "Future Value",
-      sublabel: "Total accumulated wealth",
+      sublabel: "Est. Portfolio Value",
       value: futureValue,
-      icon: <TrendingUp className="h-5 w-5" aria-hidden="true" />,
+      icon: <TrendingUp className="h-6 w-6" aria-hidden="true" />,
       accentColor: "from-[#FFDB58] to-[#e1ad01]",
-      valueColor: "text-[#Fbc101]"
+      valueColor: "text-[#b28b00]",
+      bgColor: "bg-[#FFDB58]/10",
     },
     {
       label: "Total Invested",
-      sublabel: "Your capital investment",
+      sublabel: "Your contributions",
       value: totalInvested,
-      icon: <Wallet className="h-5 w-5" aria-hidden="true" />,
+      icon: <Wallet className="h-6 w-6" aria-hidden="true" />,
       accentColor: "from-[#224c87] to-[#1a3a6b]",
       valueColor: "text-[#224c87]",
+      bgColor: "bg-blue-50/50",
     },
     {
       label: "Total Returns",
-      sublabel: "Wealth gained from returns",
+      sublabel: "Wealth estimation",
       value: totalReturns,
-      icon: <Coins className="h-5 w-5" aria-hidden="true" />,
+      icon: <Coins className="h-6 w-6" aria-hidden="true" />,
       accentColor: "from-emerald-500 to-emerald-600",
-      valueColor: "text-emerald-600",
+      valueColor: "text-emerald-700",
+      bgColor: "bg-emerald-50/50",
     },
   ];
 
   return (
     <div
-      className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
       role="region"
       aria-label="Investment projection summary"
     >
-      {cards.map((card) => (
-        <div
+      {cards.map((card, index) => (
+        <motion.div
           key={card.label}
-          className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className={`group bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`}
         >
-          <div className={`h-1.5 w-full bg-gradient-to-r ${card.accentColor}`} />
-          <div className="p-5">
-            <div className="flex items-center justify-between mb-3">
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+          <div className={`h-2 w-full bg-gradient-to-r ${card.accentColor}`} />
+          <div className="p-6 md:p-8">
+            <div className="flex items-center justify-between mb-5">
+              <div className={`${card.bgColor} ${card.valueColor} p-3 rounded-2xl`}>
+                {card.icon}
+              </div>
+              <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
                 {card.label}
               </p>
-              <div className={`${card.valueColor} opacity-70`}>{card.icon}</div>
             </div>
-            <p
-              className={`text-2xl font-bold ${card.valueColor} font-[Montserrat] leading-tight`}
+            
+            <div 
+              className={`text-xl sm:text-lg md:text-2xl lg:text-3xl font-black ${card.valueColor} font-[Montserrat] tracking-tight mb-2 flex overflow-hidden break-all`}
               aria-label={`${card.label}: ${formatINR(card.value)}`}
             >
-              {formatINR(card.value)}
-            </p>
-            <p className="text-xs text-slate-400 mt-1">{card.sublabel}</p>
+              <NumberTicker value={card.value} />
+            </div>
+            
+            <div className="flex items-center gap-2">
+              <div className="h-1 w-6 bg-slate-200 rounded-full" />
+              <p className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider">{card.sublabel}</p>
+            </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
