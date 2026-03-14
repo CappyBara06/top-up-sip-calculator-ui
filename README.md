@@ -1,11 +1,36 @@
+# Top-Up SIP Calculator UI
 
-  # Top-Up SIP Calculator UI
+This repository contains two versions of a Top-Up SIP Calculator UI. 
+- A **Vite-based** React application (Root directory)
+- A **Next.js** application (`nextjs-app` directory)
 
-  This is a code bundle for Top-Up SIP Calculator UI. The original project is available at https://www.figma.com/design/C8d2EM1bgSy3ZoEUtv6loY/Top-Up-SIP-Calculator-UI.
+## Setup and Installation
 
-  ## Running the code
+### 1. Clone the repository
+```bash
+git clone https://github.com/CappyBara06/top-up-sip-calculator-ui.git
+cd top-up-sip-calculator-ui
+```
 
-  Run `npm i` to install the dependencies.
+### 2. Run the Vite Application
+```bash
+# Install dependencies
+npm install
 
-  Run `npm run dev` to start the development server.
-  
+# Start the development server
+npm run dev
+```
+The application will be available at `http://localhost:5173`.
+
+### 3. Run the Next.js Application
+```bash
+# Navigate to the Next.js directory
+cd nextjs-app
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+The application will be available at `http://localhost:3000` (or `3001` if 3000 is in use).
