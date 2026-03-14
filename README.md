@@ -12,16 +12,6 @@ git clone https://github.com/CappyBara06/top-up-sip-calculator-ui.git
 cd top-up-sip-calculator-ui
 ```
 
-### 2. Run the Vite Application
-```bash
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
-The application will be available at `http://localhost:5173`.
-
 ### 3. Run the Next.js Application
 ```bash
 # Navigate to the Next.js directory
