@@ -8,6 +8,8 @@ export interface SIPYearlyData {
   sipAmount: number;
   /** The total estimated portfolio value at the end of this year */
   portfolioValue: number;
+  /** The total cumulative principal amount invested up to the end of this year */
+  totalInvested: number;
 }
 
 /**
@@ -55,7 +57,7 @@ export function calculateTopUpSip(
 
   // Initialize data with year 0 state
   const yearlyData: SIPYearlyData[] = [
-    { year: 0, sipAmount: 0, portfolioValue: 0 },
+    { year: 0, sipAmount: 0, portfolioValue: 0, totalInvested: 0 },
   ];
 
   // Process each year of the investment tenure
@@ -75,7 +77,8 @@ export function calculateTopUpSip(
     yearlyData.push({
       year,
       sipAmount: Math.round(currentSip),
-      portfolioValue: Math.round(runningPortfolioValue)
+      portfolioValue: Math.round(runningPortfolioValue),
+      totalInvested: Math.round(totalInvested)
     });
 
     // Increment the SIP amount for the start of the next year

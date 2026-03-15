@@ -139,7 +139,7 @@ export const GrowthChart: React.FC<GrowthChartProps> = ({ data }) => {
                 wrapperStyle={{ paddingTop: "32px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.1em" }}
               />
               <Bar
-                dataKey="sipAmount"
+                dataKey="totalInvested"
                 name="Invested"
                 stackId="growth"
                 fill="#da3832"
@@ -200,7 +200,7 @@ export const GrowthChart: React.FC<GrowthChartProps> = ({ data }) => {
               />
               <Line
                 type="monotone"
-                dataKey="sipAmount"
+                dataKey="totalInvested"
                 name="Invested"
                 stroke="#da3832"
                 strokeWidth={3}
