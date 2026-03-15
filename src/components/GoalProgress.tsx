@@ -32,7 +32,7 @@ export const GoalProgress: React.FC<GoalProgressProps> = ({
           <Target className="h-6 w-6 text-[#224c87]" aria-hidden="true" />
         </div>
         <div>
-          <h3 className="font-black text-[#224c87] text-xl md:text-2xl font-[Montserrat] tracking-tight">
+          <h3 className="font-black text-[#224c87] text-xl md:text-2xl font-montserrat tracking-tight">
             Goal Milestone
           </h3>
           <p className="text-xs md:text-sm font-bold text-slate-400 mt-1 uppercase tracking-wider">
@@ -101,7 +101,7 @@ export const GoalProgress: React.FC<GoalProgressProps> = ({
             <p className="text-[10px] md:text-xs font-black text-emerald-700 uppercase tracking-widest mb-2">
               Wealth Surplus Projection
             </p>
-            <p className="text-2xl md:text-3xl font-black text-emerald-600 font-[Montserrat] tracking-tight">
+            <p className="text-2xl md:text-3xl font-black text-emerald-600 font-montserrat tracking-tight">
               +{formatINR(futureValue - goalAmount)}
             </p>
           </div>
@@ -110,7 +110,7 @@ export const GoalProgress: React.FC<GoalProgressProps> = ({
             <p className="text-[10px] md:text-xs font-black text-[#da3832] uppercase tracking-widest mb-2">
               Shortfall Estimation
             </p>
-            <p className="text-2xl md:text-3xl font-black text-[#da3832] font-[Montserrat] tracking-tight">
+            <p className="text-2xl md:text-3xl font-black text-[#da3832] font-montserrat tracking-tight">
               {formatINR(shortfall)}
             </p>
           </div>

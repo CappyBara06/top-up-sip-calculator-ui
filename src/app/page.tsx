@@ -82,7 +82,7 @@ export default function Home() {
                 <Calculator className="h-8 w-8 md:h-10 md:w-10 text-white" aria-hidden="true" />
               </div>
               <div>
-                <h1 className="text-3xl md:text-5xl font-extrabold font-[Montserrat] tracking-tight leading-tight">
+                <h1 className="text-3xl md:text-5xl font-extrabold font-montserrat tracking-tight leading-tight">
                   Top-Up <span className="text-[#da3832]">SIP</span> Calculator
                 </h1>
                 <p className="text-blue-100/80 font-medium text-sm md:text-lg mt-2 flex items-center gap-2">
@@ -154,7 +154,7 @@ export default function Home() {
                 >
                   {/* Section heading */}
                   <div className="flex items-center justify-between pb-4 border-b border-slate-200">
-                    <h2 className="text-2xl md:text-3xl font-black text-slate-800 font-[Montserrat] tracking-tight">
+                    <h2 className="text-2xl md:text-3xl font-black text-slate-800 font-montserrat tracking-tight">
                       Investment <span className="text-[#224c87]">Projection</span>
                     </h2>
                     <div className="h-1 w-20 bg-gradient-to-r from-[#224c87] to-[#da3832] rounded-full hidden md:block" />
@@ -217,7 +217,7 @@ export default function Home() {
                   >
                     <div className="flex items-center gap-3 mb-8">
                       <div className="h-8 w-1.5 bg-[#224c87] rounded-full" />
-                      <h3 className="text-2xl font-black text-slate-800 font-[Montserrat] tracking-tight">
+                      <h3 className="text-2xl font-black text-slate-800 font-montserrat tracking-tight">
                         Calculation <span className="text-[#224c87]">Assumptions</span>
                       </h3>
                     </div>

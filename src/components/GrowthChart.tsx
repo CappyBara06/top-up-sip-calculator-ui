@@ -62,7 +62,7 @@ export const GrowthChart: React.FC<GrowthChartProps> = ({ data }) => {
     >
       <div className="mb-8">
         <div>
-          <h3 className="font-black text-[#224c87] text-xl md:text-2xl font-[Montserrat] tracking-tight">
+          <h3 className="font-black text-[#224c87] text-xl md:text-2xl font-montserrat tracking-tight">
             Portfolio Velocity
           </h3>
           <p className="text-xs md:text-sm font-bold text-slate-400 mt-1 uppercase tracking-wider">
@@ -184,7 +184,7 @@ export const InvestmentVsReturnsChart: React.FC<
       className="bg-white rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 p-8 md:p-10 h-full flex flex-col"
     >
       <div className="mb-8">
-        <h3 className="font-black text-[#224c87] text-xl md:text-2xl font-[Montserrat] tracking-tight">
+        <h3 className="font-black text-[#224c87] text-xl md:text-2xl font-montserrat tracking-tight">
           Portfolio Mix
         </h3>
         <p className="text-xs md:text-sm font-bold text-slate-400 mt-1 uppercase tracking-wider">
@@ -227,13 +227,13 @@ export const InvestmentVsReturnsChart: React.FC<
       <div className="mt-8 grid grid-cols-2 gap-4">
         <div className="bg-[#224c87]/5 rounded-[1.5rem] p-4 text-center border border-[#224c87]/5">
           <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Capital</p>
-          <p className="text-xl md:text-2xl font-black text-[#224c87] font-[Montserrat]">
+          <p className="text-xl md:text-2xl font-black text-[#224c87] font-montserrat">
             {investedPct}%
           </p>
         </div>
         <div className="bg-[#da3832]/5 rounded-[1.5rem] p-4 text-center border border-[#da3832]/5">
           <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Profit</p>
-          <p className="text-xl md:text-2xl font-black text-[#da3832] font-[Montserrat]">
+          <p className="text-xl md:text-2xl font-black text-[#da3832] font-montserrat">
             {returnsPct}%
           </p>
         </div>

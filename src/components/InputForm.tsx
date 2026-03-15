@@ -173,7 +173,7 @@ export const InputForm: React.FC<InputFormProps> = ({
             <Calculator className="h-6 w-6 text-white" aria-hidden="true" />
           </div>
           <div>
-            <h2 className="text-white font-black text-xl font-[Montserrat] tracking-tight">
+            <h2 className="text-white font-black text-xl font-montserrat tracking-tight">
               Parameters
             </h2>
             <p className="text-blue-200/60 text-xs font-bold uppercase tracking-widest mt-0.5">Define your goal</p>
@@ -305,7 +305,7 @@ export const InputForm: React.FC<InputFormProps> = ({
           whileTap={{ scale: 0.98 }}
           type="submit"
           disabled={isLoading}
-          className="w-full bg-[#224c87] hover:bg-[#1a3a6b] text-white font-black py-5 rounded-[1.5rem] text-base md:text-lg shadow-2xl shadow-blue-900/40 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed font-[Montserrat] tracking-tight"
+          className="w-full bg-[#224c87] hover:bg-[#1a3a6b] text-white font-black py-5 rounded-[1.5rem] text-base md:text-lg shadow-2xl shadow-blue-900/40 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed font-montserrat tracking-tight"
         >
           {isLoading ? (
             <div className="flex items-center justify-center gap-3">

@@ -37,7 +37,7 @@ export const TopUpImpact: React.FC<TopUpImpactProps> = ({
     >
       <div className="flex items-center gap-3 mb-8">
         <div className="h-8 w-1.5 bg-[#da3832] rounded-full" />
-        <h3 className="text-2xl font-black text-slate-800 font-[Montserrat] tracking-tight">
+        <h3 className="text-2xl font-black text-slate-800 font-montserrat tracking-tight">
           Impact of <span className="text-[#da3832]">Top-Up Strategy</span>
         </h3>
       </div>
@@ -48,7 +48,7 @@ export const TopUpImpact: React.FC<TopUpImpactProps> = ({
           <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col justify-between">
             <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Without Top-Up</span>
             <div className="space-y-1">
-              <p className="text-xl md:text-2xl font-black text-slate-800 font-[Montserrat] tracking-tight line-through opacity-50">
+              <p className="text-xl md:text-2xl font-black text-slate-800 font-montserrat tracking-tight line-through opacity-50">
                 {formatINR(normalSipValue)}
               </p>
               <p className="text-xs font-bold text-slate-400 italic">Standard SIP Growth</p>
@@ -59,7 +59,7 @@ export const TopUpImpact: React.FC<TopUpImpactProps> = ({
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:scale-125 transition-transform duration-500" />
             <span className="text-[10px] font-black text-blue-200/60 uppercase tracking-widest mb-4 relative z-10">With Top-Up</span>
             <div className="space-y-1 relative z-10">
-              <p className="text-xl md:text-2xl font-black font-[Montserrat] tracking-tight">
+              <p className="text-xl md:text-2xl font-black font-montserrat tracking-tight">
                 {formatINR(currentFutureValue)}
               </p>
               <div className="flex items-center gap-2">
@@ -88,7 +88,7 @@ export const TopUpImpact: React.FC<TopUpImpactProps> = ({
             
             <div className="flex items-center gap-4 bg-white/60 backdrop-blur-md px-8 py-4 rounded-2xl border border-emerald-200/50 shadow-inner">
               <ArrowRight className="h-6 w-6 text-emerald-500 hidden md:block" />
-              <span className="text-2xl md:text-3xl font-black text-emerald-700 font-[Montserrat] tracking-tight">
+              <span className="text-2xl md:text-3xl font-black text-emerald-700 font-montserrat tracking-tight">
                 {formatINR(extraWealth)}
               </span>
             </div>

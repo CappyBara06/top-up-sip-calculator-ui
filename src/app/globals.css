@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-montserrat), "Arial", "Verdana", sans-serif;
   --font-montserrat: var(--font-montserrat), "Montserrat", sans-serif;
   --color-brand-blue: #224c87;
   --color-brand-red: #da3832;

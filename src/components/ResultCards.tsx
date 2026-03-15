@@ -95,7 +95,7 @@ export const ResultCards: React.FC<ResultCardsProps> = ({
             </div>
             
             <div 
-              className={`text-xl sm:text-lg md:text-2xl lg:text-3xl font-black ${card.valueColor} font-[Montserrat] tracking-tight mb-2 flex overflow-hidden break-all`}
+              className={`text-xl sm:text-lg md:text-2xl lg:text-3xl font-black ${card.valueColor} font-montserrat tracking-tight mb-2 flex overflow-hidden break-all`}
               aria-label={`${card.label}: ${formatINR(card.value)}`}
             >
               <NumberTicker value={card.value} />

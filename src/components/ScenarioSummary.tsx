@@ -31,7 +31,7 @@ export const ScenarioSummary: React.FC<ScenarioSummaryProps> = ({
     >
       <div className="flex items-center gap-3 mb-8">
         <div className="h-8 w-1.5 bg-[#224c87] rounded-full" />
-        <h3 className="text-2xl font-black text-slate-800 font-[Montserrat] tracking-tight">
+        <h3 className="text-2xl font-black text-slate-800 font-montserrat tracking-tight">
           Your Investment <span className="text-[#224c87]">Scenario</span>
         </h3>
       </div>
@@ -68,11 +68,11 @@ export const ScenarioSummary: React.FC<ScenarioSummaryProps> = ({
             <div className="space-y-6">
               <div className="flex flex-col gap-1">
                 <span className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider">Total Invested</span>
-                <span className="text-xl md:text-2xl font-black text-slate-800 font-[Montserrat] tracking-tight">{formatINR(invested)}</span>
+                <span className="text-xl md:text-2xl font-black text-slate-800 font-montserrat tracking-tight">{formatINR(invested)}</span>
               </div>
               <div className="flex flex-col gap-1 p-5 bg-blue-50/50 rounded-2xl border border-blue-100/50">
                 <span className="text-[10px] md:text-xs font-bold text-blue-600 uppercase tracking-wider">Est. Portfolio Value</span>
-                <span className="text-2xl md:text-3xl font-black text-[#224c87] font-[Montserrat] tracking-tight leading-none mt-1">
+                <span className="text-2xl md:text-3xl font-black text-[#224c87] font-montserrat tracking-tight leading-none mt-1">
                   {formatINR(futureValue)}
                 </span>
               </div>

@@ -104,7 +104,7 @@ export const InvestmentInsights: React.FC<InvestmentInsightsProps> = ({
     >
       <div className="flex items-center gap-3 mb-8">
         <div className="h-8 w-1.5 bg-[#da3832] rounded-full" />
-        <h3 className="text-2xl font-black text-slate-800 font-[Montserrat] tracking-tight">
+        <h3 className="text-2xl font-black text-slate-800 font-montserrat tracking-tight">
           Investment <span className="text-[#da3832]">Insights</span>
         </h3>
       </div>
