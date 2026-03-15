@@ -45,9 +45,9 @@ export const ResultCards: React.FC<ResultCardsProps> = ({
       sublabel: "Est. Portfolio Value",
       value: futureValue,
       icon: <TrendingUp className="h-6 w-6" aria-hidden="true" />,
-      accentColor: "from-[#FFDB58] to-[#e1ad01]",
-      valueColor: "text-[#b28b00]",
-      bgColor: "bg-[#FFDB58]/10",
+      accentColor: "from-slate-400 to-slate-500",
+      valueColor: "text-slate-700",
+      bgColor: "bg-slate-100",
     },
     {
       label: "Total Invested",
