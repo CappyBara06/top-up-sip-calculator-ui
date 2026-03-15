@@ -7,6 +7,9 @@ import { InputForm, CalculatorState } from "@/components/InputForm";
 import { ResultCards } from "@/components/ResultCards";
 import { GrowthChart, InvestmentVsReturnsChart } from "@/components/GrowthChart";
 import { GoalProgress } from "@/components/GoalProgress";
+import { ScenarioSummary } from "@/components/ScenarioSummary";
+import { TopUpImpact } from "@/components/TopUpImpact";
+import { InvestmentInsights } from "@/components/InvestmentInsights";
 import { calculateTopUpSip, CalculationResult } from "@/lib/topupSipCalculator";
 
 const DEFAULT_STATE: CalculatorState = {
@@ -185,6 +188,63 @@ export default function Home() {
 
                   {/* Growth chart – full width */}
                   <GrowthChart data={result.yearlyData} />
+
+                  {/* Scenario Summary */}
+                  <ScenarioSummary
+                    monthlySip={formState.monthlyInvestment}
+                    topUpRate={formState.topUpPercentage / 100}
+                    annualReturn={formState.expectedReturn / 100}
+                    years={formState.years}
+                    invested={result.invested}
+                    futureValue={result.futureValue}
+                  />
+
+                  {/* Top-Up Impact Comparison */}
+                  <TopUpImpact
+                    monthlySip={formState.monthlyInvestment}
+                    annualReturn={formState.expectedReturn / 100}
+                    years={formState.years}
+                    topUpRate={formState.topUpPercentage / 100}
+                    currentFutureValue={result.futureValue}
+                  />
+
+                  {/* Assumptions Disclosure */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    className="mt-12 pt-10 border-t border-slate-200"
+                  >
+                    <div className="flex items-center gap-3 mb-8">
+                      <div className="h-8 w-1.5 bg-[#224c87] rounded-full" />
+                      <h3 className="text-2xl font-black text-slate-800 font-[Montserrat] tracking-tight">
+                        Calculation <span className="text-[#224c87]">Assumptions</span>
+                      </h3>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {[
+                        "Returns are compounded monthly",
+                        "SIP amount increases annually according to the top-up percentage",
+                        "Returns are assumed to remain constant for calculation purposes",
+                        "Calculated figures are for illustrative purposes only",
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-4 bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                          <div className="w-2 h-2 bg-[#da3832] rounded-full shrink-0 shadow-[0_0_8px_#da3832]" />
+                          <p className="text-sm font-semibold text-slate-600 leading-tight">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Investment Insights */}
+                  <InvestmentInsights
+                    years={formState.years}
+                    topUpRate={formState.topUpPercentage / 100}
+                    annualReturn={formState.expectedReturn / 100}
+                    invested={result.invested}
+                    futureValue={result.futureValue}
+                    goalAmount={formState.goalAmount}
+                  />
                 </motion.div>
               ) : (
                 <div className="h-96 flex flex-col items-center justify-center text-slate-400 gap-4">
@@ -193,34 +253,6 @@ export default function Home() {
                 </div>
               )}
             </AnimatePresence>
-
-            {/* Assumptions Disclosure */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-12 pt-10 border-t border-slate-200"
-            >
-              <div className="flex items-center gap-3 mb-8">
-                <div className="h-8 w-1.5 bg-[#224c87] rounded-full" />
-                <h3 className="text-2xl font-black text-slate-800 font-[Montserrat] tracking-tight">
-                  Calculation <span className="text-[#224c87]">Assumptions</span>
-                </h3>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
-                  "Returns are compounded monthly",
-                  "SIP amount increases annually according to the top-up percentage",
-                  "Returns are assumed to remain constant for calculation purposes",
-                  "Calculated figures are for illustrative purposes only",
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-4 bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="w-2 h-2 bg-[#da3832] rounded-full shrink-0 shadow-[0_0_8px_#da3832]" />
-                    <p className="text-sm font-semibold text-slate-600 leading-tight">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
           </div>
         </div>
       </main>
