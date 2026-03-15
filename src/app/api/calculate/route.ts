@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { calculateTopUpSIP } from "@/lib/topupSipCalculator";
+import { calculateTopUpSip } from "@/lib/topupSipCalculator";
 
 export interface CalculateRequestBody {
   monthlyInvestment: number;
@@ -18,7 +18,6 @@ export async function POST(req: NextRequest) {
       topUpPercentage,
       expectedReturn,
       years,
-      inflationRate = 0,
     } = body;
 
     // Basic validation
@@ -41,12 +40,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const result = calculateTopUpSIP(
+    // Convert percentages to decimals for the calculation function
+    const annualReturnDecimal = expectedReturn / 100;
+    const topUpRateDecimal = topUpPercentage / 100;
+
+    const result = calculateTopUpSip(
       monthlyInvestment,
-      expectedReturn,
+      annualReturnDecimal,
       years,
-      topUpPercentage,
-      inflationRate
+      topUpRateDecimal
     );
 
     return NextResponse.json(result);
