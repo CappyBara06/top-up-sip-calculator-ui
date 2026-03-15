@@ -114,11 +114,17 @@ const SliderField: React.FC<SliderFieldProps> = ({
           max={max}
           step={step}
           value={value}
+          aria-valuemin={min}
+          aria-valuemax={max}
+          aria-valuenow={value}
           aria-label={`${label} slider`}
           onChange={(e) => onChange(parseFloat(e.target.value))}
-          className="w-full h-2.5 md:h-3 appearance-none rounded-full cursor-pointer touch-none focus:outline-none focus:ring-2 focus:ring-[#224c87]/20 focus:ring-offset-2"
+          className="w-full h-11 appearance-none bg-transparent cursor-pointer touch-none focus:outline-none focus:ring-2 focus:ring-[#224c87]/20 focus:ring-offset-2 flex items-center"
           style={{
             background: `linear-gradient(to right, #224c87 0%, #224c87 ${percentage}%, #e2e8f0 ${percentage}%, #e2e8f0 100%)`,
+            backgroundSize: '100% 10px',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         />
       </div>

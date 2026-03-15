@@ -11,11 +11,29 @@ The Top-Up SIP Calculator is a comprehensive financial tool designed to estimate
 
 ## Tech Stack
 
-- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Framework**: [Next.js 15.5.9](https://nextjs.org/) (App Router)
+- **Node.js**: 22.11.0
+- **NPM**: 10.9.0
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **UI Components**: [React](https://reactjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
+
+## Technical Omissions & Compliance
+
+This project is a high-performance **Frontend-only** financial utility. To maintain a lightweight footprint and maximum security, the following components were deliberately omitted:
+- **CMS (Drupal 10.5.6)**: Not required as content is static and logic-driven.
+- **Backend (PHP 8.1 / MySQL)**: Data persistence is not needed for a stateless calculator. All calculations are performed client-side using robust TypeScript logic.
+
+## Responsiveness & Accessibility
+
+- **Mobile First**: Built with a responsive grid architecture.
+- **Touch Friendly**: Sliders and buttons maintain a minimum 44×44px touch target (WCAG 2.5.5).
+- **ARIA Compliance**: Interactive elements include comprehensive ARIA roles and labels for screen readers.
+- **Breakpoints**: 
+  - Mobile: `< 640px`
+  - Tablet: `640px - 1024px`
+  - Desktop: `> 1024px`
 
 ## Calculation Logic
 

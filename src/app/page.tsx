@@ -123,23 +123,22 @@ export default function Home() {
       <main className="flex-grow container mx-auto px-4 md:px-8 max-w-7xl py-10 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 items-start">
 
-          {/* Left column – Input form (Now Order 1) */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+          <section 
+            aria-labelledby="parameters-heading"
             className="lg:col-span-4 order-1 w-full"
           >
+            <h2 id="parameters-heading" className="sr-only">Investment Parameters</h2>
             <InputForm
               initialState={DEFAULT_STATE}
               onCalculate={handleCalculate}
               isLoading={isLoading}
             />
-          </motion.div>
+          </section>
 
           {/* Right column – Results (Now Order 2) */}
-          <div
+          <section
             id="results-section"
+            aria-labelledby="projection-heading"
             className="lg:col-span-8 order-2 space-y-8 md:space-y-12"
           >
             <AnimatePresence mode="wait">
@@ -154,7 +153,7 @@ export default function Home() {
                 >
                   {/* Section heading */}
                   <div className="flex items-center justify-between pb-4 border-b border-slate-200">
-                    <h2 className="text-2xl md:text-3xl font-black text-slate-800 font-montserrat tracking-tight">
+                    <h2 id="projection-heading" className="text-2xl md:text-3xl font-black text-slate-800 font-montserrat tracking-tight">
                       Investment <span className="text-[#224c87]">Projection</span>
                     </h2>
                     <div className="h-1 w-20 bg-gradient-to-r from-[#224c87] to-[#da3832] rounded-full hidden md:block" />
@@ -253,7 +252,7 @@ export default function Home() {
                 </div>
               )}
             </AnimatePresence>
-          </div>
+          </section>
         </div>
       </main>
 
