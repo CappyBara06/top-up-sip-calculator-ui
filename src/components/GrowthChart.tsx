@@ -53,8 +53,6 @@ interface GrowthChartProps {
 }
 
 export const GrowthChart: React.FC<GrowthChartProps> = ({ data }) => {
-  const [chartType, setChartType] = useState<"bar" | "line">("bar");
-
   return (
     <motion.div 
       initial={{ opacity: 0, y: 30 }}
@@ -62,7 +60,7 @@ export const GrowthChart: React.FC<GrowthChartProps> = ({ data }) => {
       transition={{ duration: 0.6, delay: 0.5 }}
       className="bg-white rounded-[2.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 p-6 md:p-10"
     >
-      <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+      <div className="mb-8">
         <div>
           <h3 className="font-black text-[#224c87] text-xl md:text-2xl font-[Montserrat] tracking-tight">
             Portfolio Velocity
@@ -71,30 +69,6 @@ export const GrowthChart: React.FC<GrowthChartProps> = ({ data }) => {
             Projected value vs. Cumulative contributions
           </p>
         </div>
-
-        {/* Chart View Toggle Switch */}
-        <div className="flex bg-slate-100/80 p-1.5 rounded-2xl self-start border border-slate-200/40">
-          <button
-            onClick={() => setChartType("bar")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${chartType === "bar"
-              ? "bg-white text-[#224c87] shadow-xl"
-              : "text-slate-500 hover:text-slate-700"
-              }`}
-          >
-            <BarChart3 className="w-4 h-4" />
-            Bar
-          </button>
-          <button
-            onClick={() => setChartType("line")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${chartType === "line"
-              ? "bg-white text-[#224c87] shadow-xl"
-              : "text-slate-500 hover:text-slate-700"
-              }`}
-          >
-            <LineChartIcon className="w-4 h-4" />
-            Line
-          </button>
-        </div>
       </div>
       <div
         className="h-[350px] w-full"
@@ -102,114 +76,60 @@ export const GrowthChart: React.FC<GrowthChartProps> = ({ data }) => {
         aria-label="Portfolio growth chart"
       >
         <ResponsiveContainer width="100%" height="100%">
-          {chartType === "bar" ? (
-            <BarChart
-              data={data}
-              margin={{ top: 10, right: 0, left: -20, bottom: 0 }}
-              barCategoryGap={typeof window !== "undefined" && window.innerWidth < 768 ? "15%" : "25%"}
-            >
-              <CartesianGrid
-                strokeDasharray="3 3"
-                vertical={false}
-                stroke="#f1f5f9"
-              />
-              <XAxis
-                dataKey="year"
-                tickFormatter={(v) => `Yr ${v}`}
-                stroke="#94a3b8"
-                fontSize={typeof window !== "undefined" && window.innerWidth < 768 ? 9 : 11}
-                fontWeight="700"
-                tickLine={false}
-                axisLine={false}
-                dy={10}
-              />
-              <YAxis
-                tickFormatter={formatCompact}
-                stroke="#94a3b8"
-                fontSize={10}
-                fontWeight="700"
-                tickLine={false}
-                axisLine={false}
-                width={80}
-              />
-              <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />
-              <Legend
-                iconType="circle"
-                iconSize={10}
-                wrapperStyle={{ paddingTop: "32px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.1em" }}
-              />
-              <Bar
-                dataKey="totalInvested"
-                name="Invested"
-                stackId="growth"
-                fill="#da3832"
-                radius={[0, 0, 0, 0]}
-              />
-              <Bar
-                dataKey="portfolioValue"
-                name="Future Value"
-                stackId="none"
-                fill="#224c87"
-                radius={[6, 6, 0, 0]}
-                opacity={0.8}
-              />
-            </BarChart>
-          ) : (
-            <LineChart
-              data={data}
-              margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
-            >
-              <CartesianGrid
-                strokeDasharray="3 3"
-                vertical={false}
-                stroke="#f1f5f9"
-              />
-              <XAxis
-                dataKey="year"
-                tickFormatter={(v) => `Yr ${v}`}
-                stroke="#94a3b8"
-                fontSize={typeof window !== "undefined" && window.innerWidth < 768 ? 9 : 11}
-                fontWeight="700"
-                tickLine={false}
-                axisLine={false}
-                dy={10}
-              />
-              <YAxis
-                tickFormatter={formatCompact}
-                stroke="#94a3b8"
-                fontSize={10}
-                fontWeight="700"
-                tickLine={false}
-                axisLine={false}
-                width={80}
-              />
-              <Tooltip content={<CustomTooltip />} />
-              <Legend
-                iconType="circle"
-                iconSize={10}
-                wrapperStyle={{ paddingTop: "32px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.1em" }}
-              />
-              <Line
-                type="monotone"
-                dataKey="portfolioValue"
-                name="Future Value"
-                stroke="#224c87"
-                strokeWidth={4}
-                dot={false}
-                activeDot={{ r: 6, fill: "#224c87", stroke: "#fff", strokeWidth: 3 }}
-              />
-              <Line
-                type="monotone"
-                dataKey="totalInvested"
-                name="Invested"
-                stroke="#da3832"
-                strokeWidth={3}
-                strokeDasharray="8 4"
-                dot={false}
-                activeDot={{ r: 6, fill: "#da3832", stroke: "#fff", strokeWidth: 3 }}
-              />
-            </LineChart>
-          )}
+          <LineChart
+            data={data}
+            margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
+          >
+            <CartesianGrid
+              strokeDasharray="3 3"
+              vertical={false}
+              stroke="#f1f5f9"
+            />
+            <XAxis
+              dataKey="year"
+              tickFormatter={(v) => `Yr ${v}`}
+              stroke="#94a3b8"
+              fontSize={typeof window !== "undefined" && window.innerWidth < 768 ? 9 : 11}
+              fontWeight="700"
+              tickLine={false}
+              axisLine={false}
+              dy={10}
+            />
+            <YAxis
+              tickFormatter={formatCompact}
+              stroke="#94a3b8"
+              fontSize={10}
+              fontWeight="700"
+              tickLine={false}
+              axisLine={false}
+              width={80}
+            />
+            <Tooltip content={<CustomTooltip />} />
+            <Legend
+              iconType="circle"
+              iconSize={10}
+              wrapperStyle={{ paddingTop: "32px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.1em" }}
+            />
+            <Line
+              type="monotone"
+              dataKey="portfolioValue"
+              name="Future Value"
+              stroke="#224c87"
+              strokeWidth={4}
+              dot={false}
+              activeDot={{ r: 6, fill: "#224c87", stroke: "#fff", strokeWidth: 3 }}
+            />
+            <Line
+              type="monotone"
+              dataKey="totalInvested"
+              name="Invested"
+              stroke="#da3832"
+              strokeWidth={3}
+              strokeDasharray="8 4"
+              dot={false}
+              activeDot={{ r: 6, fill: "#da3832", stroke: "#fff", strokeWidth: 3 }}
+            />
+          </LineChart>
         </ResponsiveContainer>
       </div>
     </motion.div>
