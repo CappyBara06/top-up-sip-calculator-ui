@@ -82,7 +82,7 @@ export const TopUpImpact: React.FC<TopUpImpactProps> = ({
               </div>
               <div className="text-center md:text-left">
                 <h4 className="text-sm font-black text-emerald-800 uppercase tracking-widest leading-none mb-1">Extra Wealth Generated</h4>
-                <p className="text-xs font-bold text-emerald-600/70 italic">By choosing a Top-Up strategy</p>
+                <p className="text-xs font-bold text-emerald-700/70 italic">By choosing a Top-Up strategy</p>
               </div>
             </div>
             

@@ -85,7 +85,7 @@ export const GoalProgress: React.FC<GoalProgressProps> = ({
             )}
             <span
               className={`text-sm md:text-base font-black ${
-                isAchieved ? "text-emerald-600" : "text-[#da3832]"
+                isAchieved ? "text-emerald-700" : "text-[#da3832]"
               }`}
             >
               {isAchieved ? "Goal Surpassed! 🎉" : `${percentage.toFixed(1)}% Achieved`}
@@ -101,7 +101,7 @@ export const GoalProgress: React.FC<GoalProgressProps> = ({
             <p className="text-[10px] md:text-xs font-black text-emerald-700 uppercase tracking-widest mb-2">
               Wealth Surplus Projection
             </p>
-            <p className="text-2xl md:text-3xl font-black text-emerald-600 font-montserrat tracking-tight">
+            <p className="text-2xl md:text-3xl font-black text-emerald-700 font-montserrat tracking-tight">
               +{formatINR(futureValue - goalAmount)}
             </p>
           </div>

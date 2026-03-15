@@ -127,7 +127,7 @@ export const InvestmentInsights: React.FC<InvestmentInsightsProps> = ({
             <div
               className={`w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 ${
                 insight.type === "success"
-                  ? "bg-emerald-100 text-emerald-600"
+                  ? "bg-emerald-100 text-emerald-700"
                   : insight.type === "warning"
                   ? "bg-amber-100 text-amber-600"
                   : "bg-blue-100 text-[#224c87]"
