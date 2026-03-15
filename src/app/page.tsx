@@ -54,21 +54,21 @@ export default function Home() {
       {/* ── Header ───────────────────────────────────── */}
       <header className="relative overflow-hidden bg-gradient-to-br from-[#224c87] via-[#1a3a6b] to-[#0f2447] text-white py-10 md:py-16 shadow-2xl">
         {/* Decorative blobs */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" 
+          className="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none"
         />
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-          className="absolute bottom-0 left-0 w-56 h-56 bg-[#da3832]/20 rounded-full translate-y-1/2 -translate-x-1/4 blur-2xl pointer-events-none" 
+          className="absolute bottom-0 left-0 w-56 h-56 bg-[#da3832]/20 rounded-full translate-y-1/2 -translate-x-1/4 blur-2xl pointer-events-none"
         />
 
         <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -92,7 +92,7 @@ export default function Home() {
 
           {/* Stats bar - Grid for better wrapping */}
           {result && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -121,7 +121,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 items-start">
 
           {/* Left column – Input form (Now Order 1) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -141,7 +141,7 @@ export default function Home() {
           >
             <AnimatePresence mode="wait">
               {result ? (
-                <motion.div 
+                <motion.div
                   key="results"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -168,9 +168,8 @@ export default function Home() {
 
                   {/* Returns Pie Chart & Goal Progress */}
                   <div
-                    className={`grid grid-cols-1 gap-8 ${
-                      formState.goalAmount > 0 ? "md:grid-cols-2" : ""
-                    }`}
+                    className={`grid grid-cols-1 gap-8 ${formState.goalAmount > 0 ? "md:grid-cols-2" : ""
+                      }`}
                   >
                     <InvestmentVsReturnsChart
                       invested={result.invested}
@@ -194,6 +193,34 @@ export default function Home() {
                 </div>
               )}
             </AnimatePresence>
+
+            {/* Assumptions Disclosure */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mt-12 pt-10 border-t border-slate-200"
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <div className="h-8 w-1.5 bg-[#224c87] rounded-full" />
+                <h3 className="text-2xl font-black text-slate-800 font-[Montserrat] tracking-tight">
+                  Calculation <span className="text-[#224c87]">Assumptions</span>
+                </h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  "Returns are compounded monthly",
+                  "SIP amount increases annually according to the top-up percentage",
+                  "Returns are assumed to remain constant for calculation purposes",
+                  "Calculated figures are for illustrative purposes only",
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-4 bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="w-2 h-2 bg-[#da3832] rounded-full shrink-0 shadow-[0_0_8px_#da3832]" />
+                    <p className="text-sm font-semibold text-slate-600 leading-tight">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </main>
@@ -207,10 +234,10 @@ export default function Home() {
             </div>
             <div className="text-left">
               <p className="text-sm font-bold text-slate-800 mb-1">Financial Disclaimer</p>
-              <p className="text-xs text-slate-500 leading-relaxed font-medium">
-                Projections are based on mathematical formulas and do not guarantee actual returns. 
-                Mutual Fund investments are subject to market risks. Please consult a certified 
-                financial planner before making significant investment decisions.
+              <p className="text-[10px] md:text-xs text-slate-500 leading-relaxed font-medium">
+                This tool has been designed for information purposes only. Actual results may vary depending on various factors involved in capital market.
+                Investor should not consider above as a recommendation for any schemes of HDFC Mutual Fund.
+                Past performance may or may not be sustained in future and is not a guarantee of any future returns.
               </p>
             </div>
           </div>

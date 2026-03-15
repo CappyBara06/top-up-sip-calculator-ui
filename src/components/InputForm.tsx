@@ -104,7 +104,11 @@ const SliderField: React.FC<SliderFieldProps> = ({
         />
       </div>
       <div className="relative pt-2">
+        <label htmlFor={`${id}-range`} className="sr-only">
+          {label} slider
+        </label>
         <input
+          id={`${id}-range`}
           type="range"
           min={min}
           max={max}
@@ -112,7 +116,7 @@ const SliderField: React.FC<SliderFieldProps> = ({
           value={value}
           aria-label={`${label} slider`}
           onChange={(e) => onChange(parseFloat(e.target.value))}
-          className="w-full h-2.5 md:h-3 appearance-none rounded-full cursor-pointer touch-none"
+          className="w-full h-2.5 md:h-3 appearance-none rounded-full cursor-pointer touch-none focus:outline-none focus:ring-2 focus:ring-[#224c87]/20 focus:ring-offset-2"
           style={{
             background: `linear-gradient(to right, #224c87 0%, #224c87 ${percentage}%, #e2e8f0 ${percentage}%, #e2e8f0 100%)`,
           }}

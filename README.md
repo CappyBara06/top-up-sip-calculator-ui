@@ -1,26 +1,29 @@
-# Top-Up SIP Calculator UI
+# Top-Up SIP Calculator
 
-This repository contains two versions of a Top-Up SIP Calculator UI. 
-- A **Vite-based** React application (Root directory)
-- A **Next.js** application (`nextjs-app` directory)
+The Top-Up SIP Calculator is a comprehensive financial tool designed to estimate the future value of Systematic Investment Plan (SIP) investments that increase annually through a top-up strategy. This tool helps investors visualize how incremental increases in their monthly contributions can significantly impact their long-term wealth creation.
 
-## Setup and Installation
+## Features
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/CappyBara06/top-up-sip-calculator-ui.git
-cd top-up-sip-calculator-ui
-```
+- **Dynamic Projections**: Calculate future value based on initial SIP, top-up percentage, expected returns, and tenure.
+- **Top-Up Strategy**: Models annual increases in SIP contributions to match income growth or savings goals.
+- **Visual Analytics**: Interactive charts and detailed tables showing investment growth over time.
+- **Accessibility**: Built with WCAG principles to ensure a seamless experience for all users.
 
-### 3. Run the Next.js Application
-```bash
-# Navigate to the Next.js directory
-cd nextjs-app
+## Tech Stack
 
-# Install dependencies
-npm install
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **UI Components**: [React](https://reactjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-# Start the development server
-npm run dev
-```
-The application will be available at `http://localhost:3000` (or `3001` if 3000 is in use).
+## Calculation Logic
+
+The calculator uses monthly compounding to estimate the future value. The core logic involves:
+1.  **Monthly Compounding**: Interest is calculated and added to the principal every month.
+2.  **Yearly SIP Top-Up**: The monthly SIP amount increases annually based on the user-defined top-up percentage.
+3.  **Future Value Formula**: Iterative calculation over the investment tenure, applying the monthly rate of return and accounting for the varying SIP amounts.
+
+## Disclaimer
+
+This tool has been designed for information purposes only. Actual results may vary depending on various factors involved in capital market. Investor should not consider above as a recommendation for any schemes of HDFC Mutual Fund. Past performance may or may not be sustained in future and is not a guarantee of any future returns.
